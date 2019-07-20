@@ -1,6 +1,9 @@
 package godeliverit
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 //Store defines an Store from Deliverit POS
 type Order struct {
@@ -13,7 +16,10 @@ type Order struct {
 }
 
 func (v *Order) CreatedAt() time.Time {
-	return time.Now()
+	saleDate := fmt.Sprintf("%s %s", v.OrderDate, v.InTime)
+	format := "02/01/2006 3:04 PM"
+	t, _ := time.Parse(format, saleDate)
+	return t
 }
 
 type Orders []Order
