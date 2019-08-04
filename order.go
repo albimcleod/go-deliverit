@@ -13,6 +13,7 @@ type Order struct {
 	InTime      string       `json:"InTime"`
 	OrderDetail OrderDetails `json:"OrderDetail"`
 	AmountPaid  string       `json:"AmountPaid"`
+	TenderedAmt string       `json:"TenderedAmt"`
 }
 
 func (v *Order) CreatedAt() time.Time {
